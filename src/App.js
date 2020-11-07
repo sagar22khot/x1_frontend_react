@@ -1,10 +1,11 @@
 import React from "react";
+import Layout from "./Core/Layout"
 
 const App = () => {
   return (
-    <div>
+    <Layout>
       <h1>Hello React</h1>
-    </div>
+    </Layout>
   );
 };
 export default App;
