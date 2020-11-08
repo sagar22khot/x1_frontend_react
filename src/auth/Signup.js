@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Layout from "../Core/Layout";
 import axios from "axios";
 import { isAuth } from "./helpers";
