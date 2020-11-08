@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Link, Redirect, Route } from "react-router-dom";
 import Layout from "../Core/Layout";
 import axios from "axios";
+import { authenticate } from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
