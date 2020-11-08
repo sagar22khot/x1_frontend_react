@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import { Link, Redirect, Route } from "react-router-dom";
+import { Link, Redirect, Route } from "react-router-dom";
 import Layout from "../Core/Layout";
 import axios from "axios";
-import { authenticate } from "js-cookie";
+import { authenticate, isAuth } from "./helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
@@ -31,15 +31,16 @@ const Signin = () => {
     })
       .then((response) => {
         console.log("SIGNIN SUCCESS", response);
-
-        setValues({
-          ...values,
-          name: "",
-          email: "",
-          password: "",
-          buttonText: "Submitted",
+        authenticate(response, () => {
+          setValues({
+            ...values,
+            name: "",
+            email: "",
+            password: "",
+            buttonText: "Submitted",
+          });
+          toast.success(`Hey ${response.data.user.name}, Welcome back!`);
         });
-        toast.success(`Hey ${response.data.user.name}, Welcome Back!`);
       })
       .catch((error) => {
         console.log("SIGNIN ERROR:", error.response.data);
@@ -81,6 +82,7 @@ const Signin = () => {
       <div className="col-md-6 offset-md-3">
         <ToastContainer />
         {/* {JSON.stringify({ name, email, password })} */}
+        {isAuth() ? <Redirect to="/" /> : null}
         <h1 className="p-5 text-center">Signin</h1>
         {signinForm()}
       </div>
