@@ -43,7 +43,7 @@ const Signup = () => {
       })
       .catch((error) => {
         console.log("SIGNUP ERROR:", error.response.data);
-        setValues({ ...values, buttonText: "Submitted" });
+        setValues({ ...values, buttonText: "Submit" });
         toast.error(error.response.data.error);
       });
   };
