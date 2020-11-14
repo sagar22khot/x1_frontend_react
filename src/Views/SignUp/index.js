@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import Layout from "../Core/Layout";
+import Layout from "../../Components/Layout";
 import axios from "axios";
-import { authenticate, isAuth } from "./helpers";
+import { isAuth } from "../../auth/helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Signin = ({ history }) => {
+const Signup = () => {
   const [values, setValues] = useState({
-    email: "sag45@gmail.com",
-    password: "goodrum815",
+    name: "Sagar",
+    email: "sag@gmail.com",
+    password: "goodrum816",
     buttonText: "Submit",
   });
 
-  const { email, password, buttonText } = values;
+  const { name, email, password, buttonText } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
@@ -26,34 +27,38 @@ const Signin = ({ history }) => {
 
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_API}/signin`,
-      data: { email, password },
+      url: `${process.env.REACT_APP_API}/signup`,
+      data: { name, email, password },
     })
       .then((response) => {
-        console.log("SIGNIN SUCCESS", response);
-        authenticate(response, () => {
-          setValues({
-            ...values,
-            name: "",
-            email: "",
-            password: "",
-            buttonText: "Submitted",
-          });
-          // toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-          isAuth() && isAuth().role === "admin"
-            ? history.push("/admin")
-            : history.push("/private");
+        console.log("SIGN UP SUCCESS", response);
+        setValues({
+          ...values,
+          name: "",
+          email: "",
+          password: "",
+          buttonText: "Submitted",
         });
+        toast.success(response.data.message);
       })
       .catch((error) => {
-        console.log("SIGNIN ERROR:", error.response.data);
+        console.log("SIGNUP ERROR:", error.response.data);
         setValues({ ...values, buttonText: "Submit" });
         toast.error(error.response.data.error);
       });
   };
 
-  const signinForm = () => (
+  const signupForm = () => (
     <form>
+      <div className="form-group">
+        <label className="text-muted">Name</label>
+        <input
+          onChange={handleChange("name")}
+          value={name}
+          type="text"
+          className="form-control"
+        />
+      </div>
       <div className="form-group">
         <label className="text-muted">Email</label>
         <input
@@ -86,11 +91,11 @@ const Signin = ({ history }) => {
         <ToastContainer />
         {/* {JSON.stringify({ name, email, password })} */}
         {isAuth() ? <Redirect to="/" /> : null}
-        <h1 className="p-5 text-center">Signin</h1>
-        {signinForm()}
+        <h1 className="p-5 text-center">Signup</h1>
+        {signupForm()}
       </div>
     </Layout>
   );
 };
 
-export default Signin;
+export default Signup;

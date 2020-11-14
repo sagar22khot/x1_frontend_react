@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import { Redirect } from "react-router-dom";
-import Layout from "../Core/Layout";
+import Layout from "../../Components/Layout";
 import axios from "axios";
-import { isAuth, getCookie, signout, updateUser } from "../auth/helpers";
+import { isAuth, getCookie, signout, updateUser } from "../../auth/helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
@@ -30,12 +30,12 @@ const Admin = ({ history }) => {
       },
     })
       .then((response) => {
-        console.log("PRIVATE PROFILE UPDATE", response);
+        console.log("ADMIN PROFILE UPDATE", response);
         const { role, name, email } = response.data;
         setValues({ ...values, role, name, email });
       })
       .catch((error) => {
-        console.log("PRIVATE PROFILE UPDATE ERROR", error.response.data.error);
+        console.log("ADMIN PROFILE UPDATE ERROR", error.response.data.error);
         if (error.response.status === 401) {
           signout(() => {
             history.push("/");
@@ -64,17 +64,17 @@ const Admin = ({ history }) => {
       data: { name, password },
     })
       .then((response) => {
-        console.log("PRIVATE PROFILE UPDATE SUCCESS", response);
+        console.log("ADMIN PROFILE UPDATE SUCCESS", response);
         updateUser(response, () => {
           setValues({
             ...values,
             buttonText: "Submitted",
           });
-          toast.success("Profile Updated Successfully");
+          toast.success("Admin Profile Updated Successfully");
         });
       })
       .catch((error) => {
-        console.log("PRIVATE PROFILE UPDATE ERROR:", error.response.data);
+        console.log("ADMIN PROFILE UPDATE ERROR:", error.response.data);
         setValues({ ...values, buttonText: "Submit" });
         toast.error(error.response.data.error);
       });

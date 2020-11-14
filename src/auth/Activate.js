@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import { Link, Redirect, Route } from "react-router-dom";
-import Layout from "../Core/Layout";
+import Layout from "../Components/Layout";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import { ToastContainer, toast } from "react-toastify";

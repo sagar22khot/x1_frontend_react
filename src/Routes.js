@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./App";
-import Signup from "./auth/Signup";
-import Signin from "./auth/Signin";
+import Signup from "./Views/SignUp";
+import Signin from "./Views/SignIn";
 import Activate from "./auth/Activate";
-import Private from "./Core/Private";
-import Admin from "./Core/Admin";
-import PrivateRoute from "./auth/PrivateRoute";
-import AdminRoute from "./auth/AdminRoute";
+import Private from "./Views/Private";
+import Admin from "./Views/Admin";
+import PrivateRoute from "./Components/PrivateRoute";
+import AdminRoute from "./Components/AdminRoute";
 
 const Routes = () => {
   return (
