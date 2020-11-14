@@ -10,7 +10,7 @@ const Signup = () => {
   const [values, setValues] = useState({
     name: "Sagar",
     email: "sag@gmail.com",
-    password: "goodrum816",
+    password: "goodrum815",
     buttonText: "Submit",
   });
 
