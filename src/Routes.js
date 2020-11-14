@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import App from "./App";
+import Home from "./Views/Home";
 import Signup from "./Views/SignUp";
 import Signin from "./Views/SignIn";
 import Activate from "./auth/Activate";
@@ -13,7 +13,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={App} />
+        <Route path="/" exact component={Home} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
         <Route path="/auth/activate/:token" exact component={Activate} />
