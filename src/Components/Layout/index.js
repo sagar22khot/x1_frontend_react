@@ -9,7 +9,7 @@ import {
   WrapperNavbarToggle,
   WrapperContainer,
   WrapperLink,
-  WrapperLinkSpan
+  WrapperLinkSpan,
 } from "./styled";
 
 const Layout = ({ children, match, history }) => {
@@ -56,7 +56,11 @@ const Layout = ({ children, match, history }) => {
 
           {isAuth() && isAuth().role === "admin" && (
             <WrapperNavBarItem className="nav-item pl-5 pr-5">
-              <WrapperLink className="nav-link" style={isActive("/admin")} to="/admin">
+              <WrapperLink
+                className="nav-link"
+                style={isActive("/admin")}
+                to="/admin"
+              >
                 {isAuth().name}
               </WrapperLink>
             </WrapperNavBarItem>
