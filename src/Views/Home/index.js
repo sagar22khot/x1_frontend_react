@@ -1,10 +1,12 @@
 import React from "react";
 import Layout from "../../Components/Layout";
+import { WrapperContainerHome } from "./styled";
+import backImg from "../../Assets/home.jpg";
 
 const Home = () => {
   return (
     <Layout>
-      <h1>Hello React</h1>
+      <WrapperContainerHome backurl={backImg} className="col"></WrapperContainerHome>
     </Layout>
   );
 };

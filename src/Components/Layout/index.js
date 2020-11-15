@@ -15,25 +15,34 @@ import {
 const Layout = ({ children, match, history }) => {
   const isActive = (path) => {
     if (match.path === path) {
-      return { color: "#67ADFD" };
+      return { color: "#ffff", borderBottom: "1px solid", fontWeight: 500 };
     } else {
-      return { color: "#303030" };
+      return { color: "#ffff", fontWeight: 500 };
     }
   };
 
   const nav = () => (
-    <WrapperNavBar collapseOnSelect expand="md" className="pt-3">
+    <WrapperNavBar collapseOnSelect expand="md" className="pt-3 pb-3 pr-3">
       <WrapperNavbarToggle aria-controls="basic-navbar-nav" />
       <WrapperNavBarCollapse>
         <WrapperNav>
-          <WrapperNavBarItem className="nav-item pl-5 pr-5">
+          <WrapperNavBarItem className="nav-item pl-3 pr-3">
             <WrapperLink to="/" className="nav-link" style={isActive("/")}>
               Home
             </WrapperLink>
           </WrapperNavBarItem>
+          <WrapperNavBarItem className="nav-item pl-3 pr-3">
+            <WrapperLink
+              to="/"
+              className="nav-link"
+              style={isActive("/products")}
+            >
+              Products
+            </WrapperLink>
+          </WrapperNavBarItem>
           {!isAuth() && (
             <Fragment>
-              <WrapperNavBarItem className="nav-item pl-5 pr-5">
+              <WrapperNavBarItem className="nav-item pl-3 pr-3">
                 <WrapperLink
                   to="/signin"
                   className=" nav-link"
@@ -42,7 +51,7 @@ const Layout = ({ children, match, history }) => {
                   Signin
                 </WrapperLink>
               </WrapperNavBarItem>
-              <WrapperNavBarItem className="nav-item pl-5 pr-5">
+              <WrapperNavBarItem className="nav-item pl-3 pr-3">
                 <WrapperLink
                   to="/signup"
                   className="nav-link"
@@ -55,7 +64,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && isAuth().role === "admin" && (
-            <WrapperNavBarItem className="nav-item pl-5 pr-5">
+            <WrapperNavBarItem className="nav-item pl-3 pr-3">
               <WrapperLink
                 className="nav-link"
                 style={isActive("/admin")}
@@ -67,7 +76,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && isAuth().role === "subscriber" && (
-            <WrapperNavBarItem className="nav-item pl-5 pr-5">
+            <WrapperNavBarItem className="nav-item pl-3 pr-3">
               <WrapperLink
                 className="nav-link"
                 style={isActive("/private")}
@@ -79,7 +88,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && (
-            <WrapperNavBarItem className="nav-item ">
+            <WrapperNavBarItem className="nav-item pl-3 pr-3">
               <WrapperLinkSpan
                 className="nav-link"
                 style={{ cursor: "pointer", color: "#fff" }}
@@ -101,7 +110,7 @@ const Layout = ({ children, match, history }) => {
   return (
     <Fragment>
       {nav()}
-      <WrapperContainer>{children}</WrapperContainer>
+      <WrapperContainer fluid>{children}</WrapperContainer>
     </Fragment>
   );
 };

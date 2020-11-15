@@ -5,6 +5,7 @@ import axios from "axios";
 import { isAuth } from "../../auth/helpers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { ContentDiv } from "./styled";
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -87,13 +88,13 @@ const Signup = () => {
 
   return (
     <Layout>
-      <div className="col-md-6 offset-md-3">
+      <ContentDiv className="col-md-6 col-lg-4 col-sm-8">
         <ToastContainer />
         {/* {JSON.stringify({ name, email, password })} */}
         {isAuth() ? <Redirect to="/" /> : null}
         <h1 className="p-5 text-center">Signup</h1>
         {signupForm()}
-      </div>
+      </ContentDiv>
     </Layout>
   );
 };

@@ -4,13 +4,21 @@ import { Link } from "react-router-dom";
 
 const WrapperNavBar = styled(Navbar)`
   justify-content: flex-end !important;
-  background-color: #f9f9f9;
+  background-color: rgb(0,0,0, 0.3);
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
 `;
 
-const WrapperContainer = styled(Container)``;
+const WrapperContainer = styled(Container)`
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  // height: 100vh;
+`;
 
 const WrapperNavBarCollapse = styled(Navbar.Collapse)`
-  justify-content: center !important;
+  justify-content: flex-end !important;
 `;
 
 const WrapperNav = styled(Nav)``;
