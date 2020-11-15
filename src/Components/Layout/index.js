@@ -34,49 +34,49 @@ const Layout = ({ children, match, history }) => {
           {!isAuth() && (
             <Fragment>
               <WrapperNavBarItem className="nav-item pl-5 pr-5">
-                <Link
+                <WrapperLink
                   to="/signin"
                   className=" nav-link"
                   style={isActive("/signin")}
                 >
                   Signin
-                </Link>
+                </WrapperLink>
               </WrapperNavBarItem>
               <WrapperNavBarItem className="nav-item pl-5 pr-5">
-                <Link
+                <WrapperLink
                   to="/signup"
                   className="nav-link"
                   style={isActive("/signup")}
                 >
                   Signup
-                </Link>
+                </WrapperLink>
               </WrapperNavBarItem>
             </Fragment>
           )}
 
           {isAuth() && isAuth().role === "admin" && (
             <WrapperNavBarItem className="nav-item pl-5 pr-5">
-              <Link className="nav-link" style={isActive("/admin")} to="/admin">
+              <WrapperLink className="nav-link" style={isActive("/admin")} to="/admin">
                 {isAuth().name}
-              </Link>
+              </WrapperLink>
             </WrapperNavBarItem>
           )}
 
           {isAuth() && isAuth().role === "subscriber" && (
             <WrapperNavBarItem className="nav-item pl-5 pr-5">
-              <Link
+              <WrapperLink
                 className="nav-link"
                 style={isActive("/private")}
                 to="/private"
               >
                 {isAuth().name}
-              </Link>
+              </WrapperLink>
             </WrapperNavBarItem>
           )}
 
           {isAuth() && (
             <WrapperNavBarItem className="nav-item ">
-              <span
+              <WrapperLinkSpan
                 className="nav-link"
                 style={{ cursor: "pointer", color: "#fff" }}
                 onClick={() => {
@@ -86,7 +86,7 @@ const Layout = ({ children, match, history }) => {
                 }}
               >
                 Signout
-              </span>
+              </WrapperLinkSpan>
             </WrapperNavBarItem>
           )}
         </WrapperNav>
