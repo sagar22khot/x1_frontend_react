@@ -14,11 +14,13 @@ const WrapperContainer = styled(Container)`
   padding: 0px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   // height: 100vh;
 `;
 
 const WrapperNavBarCollapse = styled(Navbar.Collapse)`
-  justify-content: flex-end !important;
+  justify-content: center !important;
 `;
 
 const WrapperNav = styled(Nav)``;

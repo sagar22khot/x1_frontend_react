@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'PrincessSofia';
+    src: local('PrincessSofia'), url(./Fonts/PrincessSofia-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'), url(./Fonts//Pacifico-Regular.ttf) format('truetype');
+}

@@ -26,12 +26,12 @@ const Layout = ({ children, match, history }) => {
       <WrapperNavbarToggle aria-controls="basic-navbar-nav" />
       <WrapperNavBarCollapse>
         <WrapperNav>
-          <WrapperNavBarItem className="nav-item pl-3 pr-3">
+          <WrapperNavBarItem className="nav-item pl-4 pr-4">
             <WrapperLink to="/" className="nav-link" style={isActive("/")}>
               Home
             </WrapperLink>
           </WrapperNavBarItem>
-          <WrapperNavBarItem className="nav-item pl-3 pr-3">
+          <WrapperNavBarItem className="nav-item pl-4 pr-4">
             <WrapperLink
               to="/"
               className="nav-link"
@@ -42,7 +42,7 @@ const Layout = ({ children, match, history }) => {
           </WrapperNavBarItem>
           {!isAuth() && (
             <Fragment>
-              <WrapperNavBarItem className="nav-item pl-3 pr-3">
+              <WrapperNavBarItem className="nav-item pl-4 pr-4">
                 <WrapperLink
                   to="/signin"
                   className=" nav-link"
@@ -51,7 +51,7 @@ const Layout = ({ children, match, history }) => {
                   Signin
                 </WrapperLink>
               </WrapperNavBarItem>
-              <WrapperNavBarItem className="nav-item pl-3 pr-3">
+              <WrapperNavBarItem className="nav-item pl-4 pr-4">
                 <WrapperLink
                   to="/signup"
                   className="nav-link"
@@ -64,7 +64,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && isAuth().role === "admin" && (
-            <WrapperNavBarItem className="nav-item pl-3 pr-3">
+            <WrapperNavBarItem className="nav-item pl-4 pr-4">
               <WrapperLink
                 className="nav-link"
                 style={isActive("/admin")}
@@ -76,7 +76,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && isAuth().role === "subscriber" && (
-            <WrapperNavBarItem className="nav-item pl-3 pr-3">
+            <WrapperNavBarItem className="nav-item pl-4 pr-4">
               <WrapperLink
                 className="nav-link"
                 style={isActive("/private")}
@@ -88,7 +88,7 @@ const Layout = ({ children, match, history }) => {
           )}
 
           {isAuth() && (
-            <WrapperNavBarItem className="nav-item pl-3 pr-3">
+            <WrapperNavBarItem className="nav-item pl-4 pr-4">
               <WrapperLinkSpan
                 className="nav-link"
                 style={{ cursor: "pointer", color: "#fff" }}
